@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Converter</title>
+    <title>Homepage</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -62,7 +63,8 @@
             letter-spacing: 0.5px;
         }
 
-        select, input {
+        select,
+        input {
             width: 100%;
             padding: 12px;
             background: #0f172a;
@@ -74,7 +76,8 @@
             transition: border-color 0.2s;
         }
 
-        select:focus, input:focus {
+        select:focus,
+        input:focus {
             border-color: var(--accent-color);
         }
 
@@ -121,11 +124,12 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="converter-card">
         <h2>Quick Converter</h2>
-        
+
         <div class="input-group">
             <label for="conversion-type">Conversion</label>
             <select id="conversion-type" onchange="updateLabels()">
@@ -184,10 +188,10 @@
 
             switch (type) {
                 case 'cToF':
-                    result = (inputVal * 9/5) + 32;
+                    result = (inputVal * 9 / 5) + 32;
                     break;
                 case 'fToC':
-                    result = (inputVal - 32) * 5/9;
+                    result = (inputVal - 32) * 5 / 9;
                     break;
                 case 'kmToMiles':
                     result = inputVal * 0.621371;
@@ -211,4 +215,5 @@
         }
     </script>
 </body>
+
 </html>
