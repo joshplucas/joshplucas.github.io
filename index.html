@@ -10,8 +10,10 @@
     <link rel="manifest" href="site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,27 +21,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background-color: white;">
+<body>
 
-    <div style="padding: 20px; font-family: 'Google Sans',sans-serif;">
+    <div class="container">
         <h1>Hello</h1>
         <h6>Website website website</h6>
     </div>
-    <div style="padding: 20px;">
-    <button style="
-    background-color: rgb(214, 214, 214);
-    color: white;
-    padding: 10px 20px;
-    font-family: Google Sans, Helvetica, sans-serif;
-    letter-spacing: 0px;
-    border-radius: 100px;
-    margin-top: 10px;
-    font-weight: normal;">
-    
-    <a href="https://google.com">Google</a>
-    </button>
+
+    <!-- Button -->
+    <div class="search">
+        <form action="https://www.google.com/search" method="get" target="_blank">
+            <input type="text" name="q" placeholder="Search Google..." autocomplete="off">
+        </form>
     </div>
-    <img src="web-app-manifest-192x192.png" alt="red face">
+
+    <div class="gemini">
+        <a href="www.gemini.google.com" target="_blank"> Open gemini</a>
+    </div>
 
     <script src="script.js"></script>
 </body>
