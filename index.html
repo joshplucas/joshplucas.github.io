@@ -167,14 +167,6 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
             pointer-events: none;
         }
-
-        /*
-        .bike-heading{
-            color:white;
-            font-family: 'Google sans'
-            
-        }
-            */
     </style>
 
 </head>
@@ -182,6 +174,7 @@
 <body>
 
     <div id="topLeftClock" class="top-left-clock">Oh noo the time is loading brow</div>
+    <div class="top-right-clock"> </div>
 
     <div class="container">
         <h1>Hello</h1>
@@ -225,7 +218,8 @@
             const clock = document.getElementById('topLeftClock');
             if (!clock) return;
             const now = new Date();
-            const hours = pad(now.getHours());
+            const h = now.getHours();
+            const hours = pad(h % 12 || 12);
             const minutes = pad(now.getMinutes());
             const seconds = pad(now.getSeconds());
             clock.textContent = `${hours}:${minutes}:${seconds}`;
@@ -234,27 +228,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const geminiButton = document.querySelector('.gemini-button');
             if (geminiButton) {
-                const isAndroid = /Android/.test(navigator.userAgent);
-                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-                if (isAndroid) {
-                    geminiButton.href = '#';
-                    geminiButton.removeAttribute('target');
-                    geminiButton.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        window.location.href = 'intent://gemini.google.com/#Intent;package=com.google.android.apps.gemini;scheme=https;S.browser_fallback_url=https%3A%2F%2Fgemini.google.com%2F;end';
-                    });
-                } else if (isIOS) {
-                    // iOS: plain link without target="_blank" so Universal Links
-                    // can trigger and open the Gemini app if installed
-                    geminiButton.href = 'https://gemini.google.com/';
-                    geminiButton.removeAttribute('target');
-                } else {
-                    // Desktop: open in new tab
-                    geminiButton.href = 'https://gemini.google.com/';
-                    geminiButton.target = '_blank';
-                }
+                geminiButton.href = 'https://gemini.google.com/';
             }
             updateTopLeftClock();
             setInterval(updateTopLeftClock, 1000);
@@ -265,16 +239,10 @@
     <div class="search">
         <form action="https://www.google.com/search" method="get" target="_blank">
             <input type="text" name="q" placeholder="Search Google..." autocomplete="off">
-            <a class="gemini-button" href="https://gemini.google.com" rel="noopener noreferrer">Open gemini</a>
+            <a class="gemini-button" href="https://gemini.google.com/" rel="noopener noreferrer">Open gemini</a>
         </form>
     </div>
-    <!--
-    <div class="bike-heading">
-        <h4>
-            adsfasdfdasdf
-        </h4>
-    </div>
--->
+
 </body>
 
 </html>
