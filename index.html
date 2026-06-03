@@ -30,7 +30,8 @@
         }
 
         .container h1 {
-            padding: 10px;
+            padding: 10px 10px 0 10px;
+            margin: 0;
             background-color: rgb(0, 0, 0);
             color: rgb(255, 255, 255);
             text-align: center;
@@ -40,6 +41,7 @@
 
         .container h6 {
             padding: 0px;
+            margin: 0;
             text-align: center;
             font-family: 'google sans';
             color: white;
@@ -101,6 +103,21 @@
         .gemini a:hover {
             transform: scale(1.05);
         }
+
+        #countdown {
+            color: white;
+            font-family: 'Google sans';
+            text-align: center;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        .timelabel {
+            color: white;
+            font-family: 'Google sans';
+            text-align: center;
+            padding-top: 75px;
+        }
     </style>
 
 </head>
@@ -111,6 +128,34 @@
         <h1>Hello</h1>
         <h6>Website website website</h6>
     </div>
+
+    <div class='timelabel'>
+        <h3> Time to the end of exams:</h3>
+    </div>
+
+    <div id="countdown">Loading countdown...</div>
+
+    <script>
+        const targetDate = new Date(2026, 5, 12, 10, 30, 15).getTime();
+        const countdownDisplay = document.getElementById("countdown");
+
+        const timerInterval = setInterval(() => {
+            const distance = targetDate - new Date().getTime();
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, '0');
+            const minutes = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+            const seconds = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+
+            countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                countdownDisplay.innerHTML = "Exams are over";
+            }
+        }, 1000);
+    </script>
+
 
     <!-- Button -->
     <div class="search">
@@ -123,7 +168,9 @@
         <a href="https://gemini.google.com" target="_blank"> Open gemini</a>
     </div>
 
-    <script src="script.js"></script>
+
+
+
 </body>
 
 </html>
