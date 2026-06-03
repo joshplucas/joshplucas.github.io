@@ -167,11 +167,95 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
             pointer-events: none;
         }
+
+        .dropdown {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 1000;
+        }
+
+        .dropdownbutton {
+            padding: 10px 16px;
+            font-family: 'Google Sans';
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            transition: background 0.3s;
+        }
+
+        .dropdownbutton:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hidog {
+            display: none;
+            position: absolute;
+            right: calc(100% + 12px);
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 10px 16px;
+            font-family: 'Google Sans';
+            font-size: 14px;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            pointer-events: none;
+        }
+
+        .dropdown:hover .hidog {
+            display: block;
+        }
+
+        .dropcontent {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            margin-top: 8px;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .dropcontent img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .dropdown:hover .dropcontent {
+            display: block;
+        }
     </style>
 
 </head>
 
 <body>
+
+    <div class="dropdown">
+        <div class="hidog">
+            Hi dog &#127881;
+        </div>
+        <button class="dropdownbutton">
+            Dropdown
+            <div class="dropcontent">
+                <img src="dog.png" alt="dag">
+            </div>
+        </button>
+
+    </div>
 
     <div id="topLeftClock" class="top-left-clock">Oh noo the time is loading brow</div>
     <div class="top-right-clock"> </div>
